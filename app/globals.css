@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-charcoal: #1c1c1e;
+  --color-gold: #c4973a;
+  --color-gold-light: #deb96a;
+  --color-cream: #f5efe0;
+  --color-parchment: #ede5cf;
+  --color-stone: #8a8070;
+  --color-text-dark: #1c1c1e;
+  --color-text-light: #f5efe0;
+  --color-border: rgba(196, 151, 58, 0.25);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream font-sans font-light text-charcoal antialiased;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  h1,
+  h2 {
+    @apply font-serif;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-charcoal;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-gold;
+  }
+}
+
+@layer components {
+  .gold-line {
+    @apply h-px w-[60px] bg-gold;
+  }
+
+  .gold-line-wide {
+    @apply h-px w-full max-w-xs bg-gold;
+  }
+
+  .section-label {
+    @apply font-accent text-sm tracking-[0.1em] text-gold;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center border border-gold bg-gold px-8 py-3 font-sans text-sm font-medium uppercase tracking-[0.05em] text-charcoal transition-colors duration-300 hover:bg-gold-light hover:border-gold-light;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center border border-gold bg-transparent px-8 py-3 font-sans text-sm font-medium uppercase tracking-[0.05em] text-gold transition-colors duration-300 hover:bg-gold/10;
+  }
+
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center border border-gold bg-transparent px-8 py-3 font-sans text-sm font-medium uppercase tracking-[0.05em] text-cream transition-colors duration-300 hover:bg-gold/20;
+  }
+
+  .corner-brackets {
+    @apply relative;
+  }
+
+  .corner-brackets::before,
+  .corner-brackets::after {
+    content: "";
+    @apply pointer-events-none absolute h-4 w-4 border-gold;
+  }
+
+  .corner-brackets::before {
+    @apply left-0 top-0 border-l-2 border-t-2;
+  }
+
+  .corner-brackets::after {
+    @apply bottom-0 right-0 border-b-2 border-r-2;
+  }
+
+  .sepia-photo {
+    filter: sepia(30%) contrast(1.1);
+  }
+
+  .arabesque-bg {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23C4973A' stroke-width='0.5' opacity='0.4'%3E%3Cpath d='M40 0 Q60 20 40 40 Q20 20 40 0'/%3E%3Cpath d='M40 40 Q60 60 40 80 Q20 60 40 40'/%3E%3Cpath d='M0 40 Q20 20 40 40 Q20 60 0 40'/%3E%3Cpath d='M40 40 Q60 20 80 40 Q60 60 40 40'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 80px 80px;
+  }
+
+  .roman-numeral-bg {
+    @apply pointer-events-none absolute font-accent text-[8rem] leading-none text-gold/5 select-none;
+  }
+
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:bg-gold focus:px-4 focus:py-2 focus:text-charcoal;
+  }
+}
