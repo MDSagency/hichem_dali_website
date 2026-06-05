@@ -39,7 +39,7 @@ export default function HomeHero() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/60 to-charcoal/90 arabesque-bg" />
+      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/60 to-charcoal/90" />
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 py-32 text-center text-cream">
         <motion.p

@@ -22,7 +22,7 @@ export default function PageHero({
 }: PageHeroProps) {
   return (
     <section
-      className={`relative flex items-center justify-center overflow-hidden bg-charcoal text-cream arabesque-bg ${
+      className={`relative flex items-center justify-center overflow-hidden bg-charcoal text-cream ${
         fullHeight ? "min-h-screen" : "min-h-[60vh]"
       }`}
     >
