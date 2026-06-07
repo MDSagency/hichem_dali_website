@@ -51,7 +51,7 @@ export default function HomeHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7 }}
-          className="font-accent text-sm tracking-[0.1em] text-charcoal mb-6 mt-10 md:mt-14"
+          className="hero-label mb-6 mt-10 text-charcoal md:mt-14"
         >
           {hero.label}
         </motion.p>
@@ -60,7 +60,7 @@ export default function HomeHero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4, duration: 0.7 }}
-          className="font-serif text-5xl font-semibold tracking-tight md:text-7xl lg:text-8xl"
+          className="hero-title text-cream"
         >
           {hero.title}
         </motion.h1>
@@ -69,7 +69,7 @@ export default function HomeHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.7 }}
-          className="mt-6 font-sans text-lg font-light md:text-xl"
+          className="hero-subtitle mt-6 text-cream/90"
         >
           {hero.subtitle}
         </motion.p>
@@ -86,7 +86,7 @@ export default function HomeHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.7 }}
-          className="mt-8 text-cream/80"
+          className="hero-body mt-8 text-cream/80"
         >
           {hero.inscription}
         </motion.p>

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Cormorant_SC, Jost } from "next/font/google";
+import { Cormorant_Garamond, Cormorant_SC, Jost, Playfair_Display, Libre_Franklin } from "next/font/google";
 import AppShell from "@/components/layout/AppShell";
 import { SiteContentProvider } from "@/components/providers/SiteContentProvider";
 import { getSiteContent } from "@/lib/site-content";
@@ -23,6 +23,20 @@ const jost = Jost({
   subsets: ["latin"],
   weight: ["300", "400", "500"],
   variable: "--font-jost",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
+const libreFranklin = Libre_Franklin({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  variable: "--font-libre-franklin",
   display: "swap",
 });
 
@@ -51,7 +65,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html
       lang="fr"
-      className={`${cormorant.variable} ${cormorantSC.variable} ${jost.variable}`}
+      className={`${cormorant.variable} ${cormorantSC.variable} ${jost.variable} ${playfair.variable} ${libreFranklin.variable}`}
     >
       <body>
         <a href="#main-content" className="skip-link">

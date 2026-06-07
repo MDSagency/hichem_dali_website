@@ -22,6 +22,8 @@ const config: Config = {
         serif: ["var(--font-cormorant)", "Georgia", "serif"],
         sans: ["var(--font-jost)", "system-ui", "sans-serif"],
         accent: ["var(--font-cormorant-sc)", "Georgia", "serif"],
+        hero: ["var(--font-playfair)", "Georgia", "serif"],
+        "hero-sans": ["var(--font-libre-franklin)", "var(--font-jost)", "system-ui", "sans-serif"],
       },
       transitionTimingFunction: {
         editorial: "cubic-bezier(0.22, 1, 0.36, 1)",

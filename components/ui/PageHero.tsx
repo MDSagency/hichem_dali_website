@@ -41,14 +41,10 @@ export default function PageHero({
       )}
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 py-24 text-center">
-        <p className="section-label mb-6 mt-10 md:mt-14">{label}</p>
-        <h1 className="font-serif text-5xl font-semibold tracking-tight md:text-7xl lg:text-8xl">
-          {title}
-        </h1>
+        <p className="hero-label mb-6 mt-10 text-gold md:mt-14">{label}</p>
+        <h1 className="hero-title text-cream">{title}</h1>
         {subtitle && (
-          <p className="mt-6 font-sans text-lg font-light tracking-wide text-cream/80 md:text-xl">
-            {subtitle}
-          </p>
+          <p className="hero-subtitle mt-6 text-cream/85">{subtitle}</p>
         )}
         <Divider className="mt-8" />
         {children}
