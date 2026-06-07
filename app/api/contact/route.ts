@@ -1,11 +1,13 @@
 import { NextResponse } from "next/server";
-import { contactSchema } from "@/lib/contact-schema";
+import { createContactSchema } from "@/lib/contact-schema";
 import { sendContactEmail } from "@/lib/email";
+import { getSiteContent } from "@/lib/site-content";
 
 export async function POST(request: Request) {
   try {
+    const content = await getSiteContent();
     const body = await request.json();
-    const parsed = contactSchema.safeParse(body);
+    const parsed = createContactSchema(content.contact.subjectOptions).safeParse(body);
 
     if (!parsed.success) {
       return NextResponse.json(

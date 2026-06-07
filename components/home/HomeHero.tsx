@@ -5,50 +5,55 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import Divider from "@/components/ui/Divider";
-import { heroCarouselImages } from "@/lib/data";
+import { useSiteContent } from "@/components/providers/SiteContentProvider";
 
 export default function HomeHero() {
+  const { home } = useSiteContent();
+  const { carousel, hero } = home;
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
+    if (!carousel.length) return;
     const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % heroCarouselImages.length);
+      setIndex((prev) => (prev + 1) % carousel.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [carousel.length]);
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={index}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 3, ease: "easeInOut" }}
-          className="absolute inset-0"
-        >
-          <Image
-            src={heroCarouselImages[index].src}
-            alt={heroCarouselImages[index].alt}
-            fill
-            className="object-cover sepia-photo"
-            priority={index === 0}
-            sizes="100vw"
-          />
-        </motion.div>
-      </AnimatePresence>
+      {carousel.length > 0 && (
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 3, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <Image
+              src={carousel[index].src}
+              alt={carousel[index].alt}
+              fill
+              className="object-cover sepia-photo"
+              priority={index === 0}
+              sizes="100vw"
+            />
+          </motion.div>
+        </AnimatePresence>
+      )}
 
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/70 via-charcoal/60 to-charcoal/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/40 via-charcoal/30 to-charcoal/50" />
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 py-32 text-center text-cream">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.7 }}
-          className="section-label mb-6"
+          className="font-accent text-sm tracking-[0.1em] text-charcoal mb-6 mt-10 md:mt-14"
         >
-          CABINET D&apos;AVOCAT — ANNABA, ALGÉRIE
+          {hero.label}
         </motion.p>
 
         <motion.h1
@@ -57,7 +62,7 @@ export default function HomeHero() {
           transition={{ delay: 0.4, duration: 0.7 }}
           className="font-serif text-5xl font-semibold tracking-tight md:text-7xl lg:text-8xl"
         >
-          Maître DALI Hichem
+          {hero.title}
         </motion.h1>
 
         <motion.p
@@ -66,7 +71,7 @@ export default function HomeHero() {
           transition={{ delay: 0.6, duration: 0.7 }}
           className="mt-6 font-sans text-lg font-light md:text-xl"
         >
-          Avocat à la Cour Suprême &amp; au Conseil d&apos;État
+          {hero.subtitle}
         </motion.p>
 
         <motion.div
@@ -83,7 +88,7 @@ export default function HomeHero() {
           transition={{ delay: 1, duration: 0.7 }}
           className="mt-8 text-cream/80"
         >
-          Inscrit au Barreau de Annaba depuis le 28 juin 1999
+          {hero.inscription}
         </motion.p>
 
         <motion.div
@@ -93,10 +98,10 @@ export default function HomeHero() {
           className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
           <Link href="/presentation" className="btn-primary">
-            Découvrir le Cabinet
+            {hero.btnPrimary}
           </Link>
           <Link href="/contact" className="btn-outline-light">
-            Nous Contacter
+            {hero.btnSecondary}
           </Link>
         </motion.div>
       </div>

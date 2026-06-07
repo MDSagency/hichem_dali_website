@@ -4,10 +4,13 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Loader2 } from "lucide-react";
-import { contactSchema, type ContactFormData } from "@/lib/contact-schema";
-import { subjectOptions } from "@/lib/data";
+import { createContactSchema, type ContactFormData } from "@/lib/contact-schema";
 
-export default function ContactForm() {
+type ContactFormProps = {
+  subjectOptions: string[];
+};
+
+export default function ContactForm({ subjectOptions }: ContactFormProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -17,7 +20,7 @@ export default function ContactForm() {
     reset,
     formState: { errors },
   } = useForm<ContactFormData>({
-    resolver: zodResolver(contactSchema),
+    resolver: zodResolver(createContactSchema(subjectOptions)),
   });
 
   const onSubmit = async (data: ContactFormData) => {

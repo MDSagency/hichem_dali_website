@@ -1,0 +1,264 @@
+import type { SiteContent } from "./site-content-types";
+
+export const defaultSiteContent: SiteContent = {
+  global: {
+    siteName: "Cabinet Maître DALI Hichem",
+    logoLine1: "DALI",
+    logoLine2: "COUR SUPRÊME",
+    logoLine3: "AVOCAT À LA COUR",
+    footerDescription: "Avocat à la Cour Suprême & au Conseil d'État — Annaba, Algérie",
+    footerCopyright: "Cabinet Maître DALI Hichem. Tous droits réservés.",
+    barreauNote: "Annaba, Algérie — Barreau de Annaba depuis 1999",
+    seoTitle: "Cabinet Maître DALI Hichem — Avocat à la Cour Suprême — Annaba",
+    seoDescription:
+      "Cabinet d'avocat fondé en 1999 à Annaba, Algérie. Spécialisé en droit des affaires, droit foncier, droit maritime et droit administratif.",
+    seoKeywords: [
+      "avocat Annaba",
+      "cabinet juridique Algérie",
+      "droit des affaires",
+      "droit foncier",
+      "droit maritime",
+      "DALI Hichem",
+    ],
+  },
+  navigation: [
+    { href: "/presentation", label: "Présentation" },
+    { href: "/equipe", label: "Notre Équipe" },
+    { href: "/objectifs", label: "Objectifs & Valeurs" },
+    { href: "/competences", label: "Compétences" },
+    { href: "/articles", label: "Articles" },
+    { href: "/entreprise", label: "Entreprise" },
+    { href: "/honoraires", label: "Honoraires" },
+    { href: "/liens", label: "Liens" },
+  ],
+  contact: {
+    address: "05, Cours de la Révolution, Annaba, Algérie",
+    phones: ["+213 5 51 38 89 39", "+213 6 64 97 41 22", "+213 38 45 18 41"],
+    email: "daliavocat@gmail.com",
+    mapQuery: "Cours de la Révolution Annaba Algérie",
+    subjectOptions: ["Conseil juridique", "Représentation", "Investissement", "Autre"],
+    formTitle: "Envoyer un message",
+    formDescription:
+      "Remplissez le formulaire ci-dessous et nous vous répondrons dans les plus brefs délais.",
+    coordsTitle: "Coordonnées",
+  },
+  home: {
+    carousel: [
+      { src: "/images/boona-1.jpg", alt: "Vue historique de Bône (Annaba)" },
+      { src: "/images/boona-2.jpg", alt: "Photographie vintage de la ville de Bône" },
+      { src: "/images/boona-3.jpg", alt: "Patrimoine architectural de Annaba" },
+    ],
+    hero: {
+      label: "CABINET D'AVOCAT — ANNABA, ALGÉRIE",
+      title: "Maître DALI Hichem",
+      subtitle: "Avocat à la Cour Suprême & au Conseil d'État",
+      inscription: "Inscrit au Barreau de Annaba depuis le 28 juin 1999",
+      btnPrimary: "Découvrir le Cabinet",
+      btnSecondary: "Nous Contacter",
+    },
+    domainsSection: {
+      label: "Domaines principaux",
+      title: "Une expertise reconnue",
+      items: [
+        { icon: "Briefcase", title: "Droit des affaires", description: "Conseil et contentieux pour entreprises et dirigeants." },
+        { icon: "Landmark", title: "Droit administratif", description: "Représentation devant les juridictions administratives." },
+        { icon: "Home", title: "Droit foncier", description: "Urbanisme, copropriété et questions de propriété." },
+      ],
+    },
+    expertiseSection: {
+      label: "Expertise",
+      title: "Domaines d'intervention",
+      btnText: "Voir toutes les compétences",
+      items: [
+        { icon: "Building2", title: "Droit des affaires", description: "Accompagnement complet des entreprises en matière commerciale et contractuelle." },
+        { icon: "Scale", title: "Droit administratif", description: "Défense des intérêts devant les tribunaux administratifs." },
+        { icon: "Home", title: "Droit foncier", description: "Urbanisme, copropriété et transactions immobilières." },
+        { icon: "Ship", title: "Droit maritime", description: "Contentieux et conseil en matière de transport et commerce maritime." },
+      ],
+    },
+    ctaSection: {
+      title: "Prendre un rendez-vous",
+      description:
+        "Bénéficiez d'un premier entretien pour évaluer votre situation juridique et définir la meilleure stratégie d'intervention.",
+      btnText: "Nous contacter",
+    },
+  },
+  presentation: {
+    hero: {
+      label: "01 / PRÉSENTATION",
+      title: "Présentation du Cabinet",
+      subtitle: "Fondé et dirigé par Maître DALI Hichem",
+      image: "/images/boona-1.jpg",
+      imageAlt: "Vue de la ville de Annaba",
+    },
+    paragraphsLeft: [
+      "Fondé et dirigé par Maître DALI Hichem, avocat à la cour suprême et au conseil d'État, inscrit au barreau de Annaba (Algérie) depuis le 28 juin 1999, notre cabinet intervient principalement en droit des affaires, en droit administratif, en droit foncier, en droit maritime.",
+      "Le cabinet intervient aussi dans les missions de conseil, assistance, représentation des entreprises.",
+      "Maître DALI Hichem a développé une expertise en droit des marchés publics, en droit des affaires.",
+    ],
+    paragraphsRight: [
+      "Notre couverture du droit nous permet d'assister et de défendre nos clients aussi bien dans le cadre de négociations, que devant les juridictions, de sorte que nous sommes à même de garantir au chef d'entreprise un suivi complet de ses affaires.",
+    ],
+    quote:
+      "Notre approche des dossiers, notre état d'esprit et notre expérience sont un atout majeur, dont nous faisons bénéficier notre clientèle.",
+    experienceYears: "28",
+    experienceLabel: "ans d'expérience",
+    domainsTitle: "Domaines principaux",
+    domains: ["Droit des affaires", "Droit administratif", "Droit foncier", "Droit maritime"],
+    btnText: "Découvrir nos compétences",
+  },
+  objectifs: {
+    hero: {
+      label: "02 / OBJECTIFS & VALEURS",
+      title: "Objectifs & Valeurs",
+      subtitle: "Un service pertinent et adapté aux réalités de l'entreprise",
+      image: "/images/boona-2.jpg",
+      imageAlt: "Patrimoine de Annaba",
+    },
+    paragraphs: [
+      "L'objectif de notre étude est d'apporter, tant en conseil qu'en contentieux, un service pertinent et adapté aux réalités de l'entreprise, défense de ces intérêts devant les tribunaux, l'établissement des premiers contrats nécessaires à l'activité et l'implantation des entreprises étrangères en Algérie.",
+      "Notre défi est de sécuriser le business et protéger les opportunités offertes aux clients.",
+      "Nous pouvons intervenir pour vous conseiller sur l'opportunité d'engager ou non un procès, sur l'intérêt de signer un contrat, de constituer ou non une société, d'engager ou non une procédure de licenciement, intervenir auprès de tiers pour tenter une conciliation en tant que médiateur.",
+    ],
+    valuesTitle: "Nos valeurs",
+    values: [
+      { icon: "Lock", title: "Confidentialité", description: "Protection absolue des informations et des dossiers confiés au cabinet." },
+      { icon: "Zap", title: "Réactivité", description: "Réponses rapides et suivi attentif de chaque situation juridique." },
+      { icon: "Award", title: "Expertise", description: "Plus de 25 ans d'expérience au service des entreprises et particuliers." },
+    ],
+    quote: "Sécuriser le business, protéger les opportunités",
+    missions: [
+      { title: "Conseil juridique", description: "Analyse de l'opportunité d'engager une action, de signer un contrat ou de constituer une société." },
+      { title: "Contentieux", description: "Représentation et défense devant toutes les juridictions de l'ordre judiciaire." },
+      { title: "Médiation", description: "Intervention auprès de tiers pour tenter une conciliation en tant que médiateur." },
+    ],
+  },
+  competences: {
+    hero: {
+      label: "03 / COMPÉTENCES",
+      title: "Compétences & Domaines d'Intervention",
+      subtitle: "Expertise appliquée et approche juridique sur mesure",
+      image: "/images/boona-3.jpg",
+      imageAlt: "Architecture de Annaba",
+    },
+    intro: [
+      "Nous mettons à votre service notre expertise appliquée et notre approche juridique.",
+      "Nous mettons à la disposition des entreprises et des particuliers, outre la compétence et l'efficacité d'un cabinet généraliste, celle d'avocat spécialisé.",
+    ],
+    items: [
+      { roman: "I", icon: "Users", title: "Droit des personnes", description: "Famille, succession et donations, patrimoine." },
+      { roman: "II", icon: "Building2", title: "Droit des sociétés et commercial", description: "Création, gestion et litiges des sociétés commerciales." },
+      { roman: "III", icon: "Receipt", title: "Droit fiscal", description: "Optimisation et contentieux en matière fiscale." },
+      { roman: "IV", icon: "Briefcase", title: "Droit social", description: "Relations de travail et procédures de licenciement." },
+      { roman: "V", icon: "Home", title: "Droit foncier", description: "Urbanisme, copropriété et propriété." },
+      { roman: "VI", icon: "Anchor", title: "Droit maritime", description: "Transport maritime et commerce international." },
+      { roman: "VII", icon: "Landmark", title: "Droit public", description: "Marchés publics et contentieux administratif." },
+      { roman: "VIII", icon: "Banknote", title: "Droit bancaire", description: "Relations bancaires et contentieux financier." },
+      { roman: "IX", icon: "Shield", title: "Droit pénal", description: "Défense pénale et assistance devant les juridictions répressives." },
+      { roman: "X", icon: "Gem", title: "Droit d'investissement et des mines", description: "Accompagnement des investisseurs et activités extractives." },
+      { roman: "XI", icon: "Gavel", title: "Mesures d'exécutions forcées et conservatoires", description: "Recouvrement et sécurisation des créances." },
+    ],
+  },
+  entreprise: {
+    hero: {
+      label: "04 / ENTREPRISE",
+      title: "L'Entreprise & L'Investissement",
+      subtitle: "Une valeur ajoutée pour les entreprises et leurs acteurs opérationnels",
+      image: "/images/boona-2.jpg",
+      imageAlt: "Environnement économique d'Annaba",
+    },
+    paragraphs: [
+      "Nous offrons une valeur ajoutée aux entreprises et à leurs acteurs opérationnels. Fondée sur un pacte de confiance, la confidentialité, la réactivité, et surtout le vécu et le suivi personnalisé.",
+      "Vous pouvez solliciter l'intervention de notre cabinet pour la création d'une société commerciale, mais aussi en cas de litiges de toutes nature dans toutes les branches du droit des affaires, notamment en matière fiscale — nous vous représenterons, vous défendrons, et plaiderons devant toutes les juridictions de l'ordre judiciaire.",
+    ],
+    pillarsTitle: "Nos piliers",
+    pillars: [
+      { title: "Confiance", description: "Un pacte de confiance au cœur de chaque relation client." },
+      { title: "Confidentialité", description: "Discrétion absolue dans le traitement de vos dossiers." },
+      { title: "Réactivité", description: "Réponses et actions adaptées aux enjeux de l'entreprise." },
+      { title: "Suivi personnalisé", description: "Un interlocuteur dédié pour un accompagnement sur mesure." },
+    ],
+    stepsTitle: "Processus d'intervention",
+    steps: [
+      { step: "01", title: "Premier entretien", description: "Analyse de votre situation et de vos objectifs." },
+      { step: "02", title: "Convention d'honoraires", description: "Transparence sur les modalités et les coûts." },
+      { step: "03", title: "Stratégie juridique", description: "Élaboration d'une approche adaptée à votre dossier." },
+      { step: "04", title: "Suivi et représentation", description: "Accompagnement complet jusqu'à la résolution." },
+    ],
+  },
+  honoraires: {
+    hero: {
+      label: "05 / HONORAIRES",
+      title: "Honoraires",
+      subtitle: "Transparence et convention d'honoraires",
+      image: "/images/boona-1.jpg",
+      imageAlt: "Cabinet juridique",
+    },
+    paragraphs: [
+      "Il est d'usage dans notre cabinet de proposer la signature d'une convention d'honoraires prévoyant le montant des honoraires.",
+      "Le montant des honoraires est fonction de la difficulté du dossier, le temps passé dans le traitement du dossier et en audience, ainsi que l'importance des intérêts en cause.",
+      "En règle générale, une provision sera demandée lors de l'ouverture du dossier.",
+    ],
+    factorsTitle: "Facteurs déterminants",
+    factors: [
+      { icon: "FileText", title: "Difficulté du dossier", description: "La complexité juridique et les enjeux spécifiques de chaque affaire." },
+      { icon: "Clock", title: "Temps consacré", description: "Le temps passé dans le traitement du dossier et en audience." },
+      { icon: "Scale", title: "Importance des intérêts", description: "L'ampleur des intérêts en cause dans la procédure." },
+    ],
+    highlightBox:
+      "Toute intervention débute par la signature d'une convention d'honoraires transparente.",
+    btnText: "Demander un premier entretien",
+  },
+  equipe: {
+    hero: {
+      label: "NOTRE ÉQUIPE",
+      title: "Notre Équipe",
+      subtitle: "Des avocats expérimentés au service de vos intérêts",
+      image: "/images/boona-3.jpg",
+      imageAlt: "Équipe du cabinet DALI",
+    },
+    intro:
+      "Le cabinet Maître DALI Hichem s'appuie sur une équipe d'avocats qualifiés, unis par la rigueur, la confidentialité et l'excellence du conseil juridique.",
+    members: [
+      {
+        name: "Maître DALI Hichem",
+        role: "Fondateur & Associé principal",
+        title: "Avocat à la Cour Suprême & au Conseil d'État",
+        bio: "Inscrit au Barreau de Annaba depuis le 28 juin 1999, Maître DALI Hichem dirige le cabinet et intervient principalement en droit des affaires, droit administratif, droit foncier et droit maritime.",
+        specialties: ["Droit des affaires", "Droit administratif", "Droit foncier", "Droit maritime", "Marchés publics"],
+        since: "1999",
+      },
+      {
+        name: "Maître [Nom Collaborateur]",
+        role: "Avocat collaborateur",
+        title: "Avocat au Barreau de Annaba",
+        bio: "Spécialisé en droit des sociétés et contentieux commercial, il accompagne les entreprises dans leurs opérations juridiques quotidiennes.",
+        specialties: ["Droit des sociétés", "Droit commercial", "Contentieux"],
+      },
+      {
+        name: "Maître [Nom Collaboratrice]",
+        role: "Avocat collaboratrice",
+        title: "Avocat au Barreau de Annaba",
+        bio: "Intervient en droit social et droit des personnes, avec une approche rigoureuse et un suivi personnalisé de chaque dossier.",
+        specialties: ["Droit social", "Droit des personnes", "Droit fiscal"],
+      },
+    ],
+  },
+  liens: {
+    hero: {
+      label: "06 / LIENS",
+      title: "Liens Utiles",
+      subtitle: "Ressources officielles algériennes",
+      image: "/images/boona-3.jpg",
+      imageAlt: "Institutions algériennes",
+    },
+    links: [
+      { name: "Journal Officiel de la République Algérienne", description: "Publications officielles et textes législatifs.", url: "https://www.joradp.dz" },
+      { name: "Ministère des Finances", description: "Informations fiscales et réglementaires.", url: "https://www.mf.gov.dz" },
+      { name: "Chambre Algérienne de Commerce et d'Industrie (CACI)", description: "Accompagnement des entreprises algériennes.", url: "https://www.caci.dz" },
+      { name: "Agence Algérienne de Promotion de l'Investissement (AAPI)", description: "Promotion et facilitation de l'investissement.", url: "https://www.aapi.dz" },
+      { name: "Douane Algérienne", description: "Réglementation douanière et procédures d'import-export.", url: "https://www.douane.gov.dz" },
+      { name: "Banque d'Algérie", description: "Politique monétaire et réglementation bancaire.", url: "https://www.bank-of-algeria.dz" },
+    ],
+  },
+};

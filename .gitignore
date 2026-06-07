@@ -11,6 +11,9 @@
 .env
 .env*.local
 
+# client handoff — contains real credentials
+CLIENT-HANDOFF-ACCOUNTS.txt
+
 # debug
 npm-debug.log*
 

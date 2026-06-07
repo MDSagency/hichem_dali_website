@@ -6,9 +6,14 @@ import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { navItems, contactHref } from "@/lib/navigation";
+import Logo from "@/components/layout/Logo";
+import { useSiteContent } from "@/components/providers/SiteContentProvider";
+
+const contactHref = "/contact";
 
 export default function Header() {
+  const { navigation } = useSiteContent();
+  const navItems = navigation;
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
@@ -100,15 +105,7 @@ export default function Header() {
         }`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-8">
-          <Link href="/" className="group shrink-0" aria-label="Accueil — Cabinet Maître DALI Hichem">
-            <span className="font-serif text-2xl font-semibold tracking-widest text-cream">
-              DALI
-            </span>
-            <span className="mt-1 block h-px w-full bg-gold transition-all group-hover:w-[110%]" />
-            <span className="mt-1 block font-accent text-[10px] tracking-[0.2em] text-cream/70">
-              AVOCAT À LA COUR
-            </span>
-          </Link>
+          <Logo variant="light" />
 
           <nav className="hidden items-center gap-8 lg:flex" aria-label="Navigation principale">
             {navItems.map((item) => (

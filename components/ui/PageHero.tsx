@@ -32,16 +32,16 @@ export default function PageHero({
             src={image}
             alt={imageAlt}
             fill
-            className="object-cover sepia-photo opacity-30"
+            className="object-cover sepia-photo opacity-50"
             priority={!fullHeight}
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-charcoal/80 via-charcoal/70 to-charcoal" />
+          <div className="absolute inset-0 bg-gradient-to-b from-charcoal/45 via-charcoal/35 to-charcoal/55" />
         </div>
       )}
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 py-24 text-center">
-        <p className="section-label mb-6">{label}</p>
+        <p className="section-label mb-6 mt-10 md:mt-14">{label}</p>
         <h1 className="font-serif text-5xl font-semibold tracking-tight md:text-7xl lg:text-8xl">
           {title}
         </h1>

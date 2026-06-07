@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Cormorant_SC, Jost } from "next/font/google";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import AppShell from "@/components/layout/AppShell";
+import { SiteContentProvider } from "@/components/providers/SiteContentProvider";
+import { getSiteContent } from "@/lib/site-content";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -25,29 +26,28 @@ const jost = Jost({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: {
-    template: "%s | Cabinet Maître DALI Hichem",
-    default: "Cabinet Maître DALI Hichem — Avocat à la Cour Suprême — Annaba",
-  },
-  description:
-    "Cabinet d'avocat fondé en 1999 à Annaba, Algérie. Spécialisé en droit des affaires, droit foncier, droit maritime et droit administratif. Maître DALI Hichem, avocat à la Cour Suprême.",
-  keywords: [
-    "avocat Annaba",
-    "cabinet juridique Algérie",
-    "droit des affaires",
-    "droit foncier",
-    "droit maritime",
-    "DALI Hichem",
-  ],
-  openGraph: {
-    type: "website",
-    locale: "fr_DZ",
-    siteName: "Cabinet Maître DALI Hichem",
-  },
-};
+export const dynamic = "force-dynamic";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getSiteContent();
+  return {
+    title: {
+      template: `%s | ${content.global.siteName}`,
+      default: content.global.seoTitle,
+    },
+    description: content.global.seoDescription,
+    keywords: content.global.seoKeywords,
+    openGraph: {
+      type: "website",
+      locale: "fr_DZ",
+      siteName: content.global.siteName,
+    },
+  };
+}
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const content = await getSiteContent();
+
   return (
     <html
       lang="fr"
@@ -57,9 +57,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main-content" className="skip-link">
           Aller au contenu principal
         </a>
-        <Header />
-        <main id="main-content">{children}</main>
-        <Footer />
+        <SiteContentProvider content={content}>
+          <AppShell content={content}>{children}</AppShell>
+        </SiteContentProvider>
       </body>
     </html>
   );
