@@ -3,6 +3,9 @@ import { createContactSchema } from "@/lib/contact-schema";
 import { sendContactEmail } from "@/lib/email";
 import { getSiteContent } from "@/lib/site-content";
 
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 export async function POST(request: Request) {
   try {
     const content = await getSiteContent();

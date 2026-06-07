@@ -3,6 +3,9 @@ import { isAdminAuthenticated } from "@/lib/auth";
 import { getSiteContent, saveSiteContent } from "@/lib/site-content";
 import type { SiteContent } from "@/lib/site-content-types";
 
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 export async function GET() {
   try {
     const content = await getSiteContent();

@@ -68,11 +68,17 @@ export default function AdminDashboardClient() {
     setMessage("");
     const res = await fetch("/api/site-content", {
       method: "PUT",
+      credentials: "same-origin",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(content),
     });
     setSaving(false);
-    setMessage(res.ok ? "Contenu enregistré avec succès." : "Erreur lors de la sauvegarde.");
+    if (res.ok) {
+      setMessage("Contenu enregistré avec succès.");
+    } else {
+      const data = await res.json().catch(() => ({}));
+      setMessage(data.error ?? `Erreur lors de la sauvegarde (${res.status}).`);
+    }
   };
 
   const saveArticle = async (e: React.FormEvent) => {

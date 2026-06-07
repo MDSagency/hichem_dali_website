@@ -7,6 +7,9 @@ import {
   isAdminAuthenticated,
 } from "@/lib/auth";
 
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 const loginSchema = z.object({
   password: z.string().min(1),
 });

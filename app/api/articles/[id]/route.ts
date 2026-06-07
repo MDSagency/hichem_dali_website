@@ -12,6 +12,9 @@ const updateSchema = z.object({
 
 type RouteContext = { params: { id: string } };
 
+export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
+
 export async function GET(_request: Request, { params }: RouteContext) {
   try {
     const article = await getArticleById(Number(params.id));
