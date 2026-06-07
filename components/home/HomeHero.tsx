@@ -16,20 +16,20 @@ export default function HomeHero() {
     if (!carousel.length) return;
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % carousel.length);
-    }, 5000);
+    }, 10000);
     return () => clearInterval(timer);
   }, [carousel.length]);
 
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
       {carousel.length > 0 && (
-        <AnimatePresence mode="wait">
+        <AnimatePresence initial={false}>
           <motion.div
             key={index}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 3, ease: "easeInOut" }}
+            transition={{ duration: 5, ease: "easeInOut" }}
             className="absolute inset-0"
           >
             <Image
