@@ -1,3 +1,4 @@
+import { unstable_noStore as noStore } from "next/cache";
 import type { DeepPartial, SiteContent } from "./site-content-types";
 import { defaultSiteContent } from "./site-content-defaults";
 import { getSql } from "./db";
@@ -41,15 +42,12 @@ export async function ensureSiteContentTable() {
 }
 
 export async function getSiteContent(): Promise<SiteContent> {
-  try {
-    await ensureSiteContentTable();
-    const sql = getSql();
-    const rows = await sql`SELECT content FROM site_content WHERE id = 1 LIMIT 1`;
-    if (!rows.length) return structuredClone(defaultSiteContent);
-    return mergeSiteContent(defaultSiteContent, rows[0].content as DeepPartial<SiteContent>);
-  } catch {
-    return structuredClone(defaultSiteContent);
-  }
+  noStore();
+  await ensureSiteContentTable();
+  const sql = getSql();
+  const rows = await sql`SELECT content FROM site_content WHERE id = 1 LIMIT 1`;
+  if (!rows.length) return structuredClone(defaultSiteContent);
+  return mergeSiteContent(defaultSiteContent, rows[0].content as DeepPartial<SiteContent>);
 }
 
 export async function saveSiteContent(content: SiteContent): Promise<void> {

@@ -1,3 +1,4 @@
+import { unstable_noStore as noStore } from "next/cache";
 import { getSql } from "./db";
 
 export type Article = {
@@ -37,6 +38,7 @@ export function slugify(text: string): string {
 }
 
 export async function getPublishedArticles(): Promise<Article[]> {
+  noStore();
   await ensureArticlesTable();
   const sql = getSql();
   const rows = await sql`
@@ -58,6 +60,7 @@ export async function getAllArticles(): Promise<Article[]> {
 }
 
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
+  noStore();
   await ensureArticlesTable();
   const sql = getSql();
   const rows = await sql`

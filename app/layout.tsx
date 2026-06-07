@@ -41,6 +41,9 @@ const libreFranklin = Libre_Franklin({
 });
 
 export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
+export const revalidate = 0;
+export const runtime = "nodejs";
 
 export async function generateMetadata(): Promise<Metadata> {
   const content = await getSiteContent();

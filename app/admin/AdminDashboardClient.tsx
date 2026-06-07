@@ -74,7 +74,9 @@ export default function AdminDashboardClient() {
     });
     setSaving(false);
     if (res.ok) {
-      setMessage("Contenu enregistré avec succès.");
+      setMessage(
+        "Contenu enregistré avec succès. Actualisez les pages publiques (Ctrl+F5) pour voir les changements."
+      );
     } else {
       const data = await res.json().catch(() => ({}));
       setMessage(data.error ?? `Erreur lors de la sauvegarde (${res.status}).`);

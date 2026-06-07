@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { isAdminAuthenticated } from "@/lib/auth";
@@ -50,6 +51,8 @@ export async function PUT(request: Request, { params }: RouteContext) {
       return NextResponse.json({ error: "Article introuvable" }, { status: 404 });
     }
 
+    revalidatePath("/articles");
+    revalidatePath(`/articles/${article.slug}`);
     return NextResponse.json(article);
   } catch (error) {
     console.error("[article PUT]", error);
@@ -67,6 +70,7 @@ export async function DELETE(_request: Request, { params }: RouteContext) {
     if (!deleted) {
       return NextResponse.json({ error: "Article introuvable" }, { status: 404 });
     }
+    revalidatePath("/articles");
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("[article DELETE]", error);

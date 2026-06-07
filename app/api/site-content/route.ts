@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import { isAdminAuthenticated } from "@/lib/auth";
 import { getSiteContent, saveSiteContent } from "@/lib/site-content";
@@ -24,6 +25,7 @@ export async function PUT(request: Request) {
   try {
     const body = (await request.json()) as SiteContent;
     await saveSiteContent(body);
+    revalidatePath("/", "layout");
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("[site-content PUT]", error);

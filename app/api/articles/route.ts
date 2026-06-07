@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { isAdminAuthenticated } from "@/lib/auth";
@@ -54,6 +55,7 @@ export async function POST(request: Request) {
     }
 
     const article = await createArticle(parsed.data);
+    revalidatePath("/articles");
     return NextResponse.json(article, { status: 201 });
   } catch (error) {
     console.error("[articles POST]", error);
