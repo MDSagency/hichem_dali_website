@@ -3,23 +3,13 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { Loader2 } from "lucide-react";
+import { contactSchema, type ContactFormData } from "@/lib/contact-schema";
 import { subjectOptions } from "@/lib/data";
-
-const contactSchema = z.object({
-  name: z.string().min(2, "Le nom doit contenir au moins 2 caractères"),
-  email: z.string().email("Adresse e-mail invalide"),
-  subject: z.enum(subjectOptions, {
-    errorMap: () => ({ message: "Veuillez sélectionner un sujet" }),
-  }),
-  message: z.string().min(20, "Le message doit contenir au moins 20 caractères"),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const {
     register,
@@ -32,6 +22,8 @@ export default function ContactForm() {
 
   const onSubmit = async (data: ContactFormData) => {
     setStatus("loading");
+    setErrorMessage("");
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -39,11 +31,18 @@ export default function ContactForm() {
         body: JSON.stringify(data),
       });
 
-      if (!response.ok) throw new Error("Erreur d'envoi");
+      const result = await response.json();
+
+      if (!response.ok) {
+        setErrorMessage(result.error ?? "Une erreur est survenue.");
+        setStatus("error");
+        return;
+      }
 
       setStatus("success");
       reset();
     } catch {
+      setErrorMessage("Une erreur est survenue. Veuillez réessayer ou nous contacter par téléphone.");
       setStatus("error");
     }
   };
@@ -153,7 +152,7 @@ export default function ContactForm() {
       )}
       {status === "error" && (
         <p className="text-center text-sm text-red-700" role="alert">
-          Une erreur est survenue. Veuillez réessayer ou nous contacter par téléphone.
+          {errorMessage}
         </p>
       )}
     </form>

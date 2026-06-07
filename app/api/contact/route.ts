@@ -1,24 +1,30 @@
 import { NextResponse } from "next/server";
-import { contactInfo } from "@/lib/data";
+import { contactSchema } from "@/lib/contact-schema";
+import { sendContactEmail } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, subject, message } = body;
+    const parsed = contactSchema.safeParse(body);
 
-    if (!name || !email || !subject || !message) {
-      return NextResponse.json({ error: "Champs requis manquants" }, { status: 400 });
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: "Données invalides", details: parsed.error.flatten().fieldErrors },
+        { status: 400 }
+      );
     }
 
-    const mailtoBody = encodeURIComponent(
-      `Nom: ${name}\nEmail: ${email}\nSujet: ${subject}\n\n${message}`
-    );
-    const mailtoLink = `mailto:${contactInfo.email}?subject=${encodeURIComponent(
-      `[Site Web] ${subject} — ${name}`
-    )}&body=${mailtoBody}`;
+    await sendContactEmail(parsed.data);
 
-    return NextResponse.json({ success: true, mailto: mailtoLink });
-  } catch {
-    return NextResponse.json({ error: "Erreur serveur" }, { status: 500 });
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error("[contact]", error);
+
+    const message =
+      error instanceof Error && error.message === "Configuration e-mail manquante"
+        ? "Le service e-mail n'est pas configuré."
+        : "Impossible d'envoyer le message pour le moment.";
+
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
