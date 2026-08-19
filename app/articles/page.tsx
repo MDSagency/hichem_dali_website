@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PageTransition from "@/components/layout/PageTransition";
 import PageHero from "@/components/ui/PageHero";
@@ -33,6 +34,19 @@ export default async function ArticlesPage() {
 
       <SectionReveal className="bg-cream px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-4xl">
+          <figure className="corner-brackets relative mb-16">
+            <div className="relative aspect-[3/2] w-full overflow-hidden border border-gold/25 sm:aspect-[21/9]">
+              <Image
+                src="/images/6.jpeg"
+                alt="Lampe de bibliothèque éclairant des ouvrages juridiques reliés"
+                fill
+                className="object-cover sepia-photo"
+                priority
+                sizes="(max-width: 896px) 100vw, 896px"
+              />
+            </div>
+          </figure>
+
           {dbError ? (
             <p className="text-center text-stone">
               Les articles ne sont pas disponibles pour le moment. La base de données n&apos;est

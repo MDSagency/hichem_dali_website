@@ -94,8 +94,8 @@ export const defaultSiteContent: SiteContent = {
       label: "01 / PRÉSENTATION",
       title: "Présentation du Cabinet",
       subtitle: "Fondé et dirigé par Maître DALI Hichem",
-      image: "/images/boona-1.jpg",
-      imageAlt: "Vue de la ville de Annaba",
+      image: "/images/2.jpeg",
+      imageAlt: "Le Cours de la Révolution à Annaba, carte postale ancienne",
     },
     paragraphsLeft: [
       "Fondé et dirigé par Maître DALI Hichem, avocat à la cour suprême et au conseil d'État, inscrit au barreau de Annaba (Algérie) depuis le 28 juin 1999, notre cabinet intervient principalement en droit des affaires, en droit administratif, en droit foncier, en droit maritime.",

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { MapPin, Phone, Mail } from "lucide-react";
 import PageTransition from "@/components/layout/PageTransition";
 import PageHero from "@/components/ui/PageHero";
@@ -32,6 +33,21 @@ export default async function ContactPage() {
 
         <section className="bg-charcoal px-6 py-16 text-cream lg:col-span-2 lg:px-10 lg:py-20">
           <h2 className="font-serif text-3xl font-medium">{contact.coordsTitle}</h2>
+
+          <figure className="mt-8">
+            <div className="relative aspect-[3/2] w-full overflow-hidden border border-gold/25">
+              <Image
+                src="/images/1.jpeg"
+                alt="Le Cours de la Révolution à Annaba, où se situe le cabinet"
+                fill
+                className="object-cover sepia-photo"
+                sizes="(max-width: 1024px) 100vw, 480px"
+              />
+            </div>
+            <figcaption className="mt-3 font-sans text-xs uppercase tracking-widest text-cream/50">
+              Cours de la Révolution, Annaba
+            </figcaption>
+          </figure>
 
           <ul className="mt-10 space-y-8">
             <li className="flex gap-4">

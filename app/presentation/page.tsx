@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PageTransition from "@/components/layout/PageTransition";
 import PageHero from "@/components/ui/PageHero";
@@ -17,19 +18,33 @@ export default async function PresentationPage() {
 
       <SectionReveal className="bg-cream px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="grid gap-12 lg:grid-cols-2">
-            <div className="space-y-6 text-stone">
-              {p.paragraphsLeft.map((text) => (
-                <p key={text.slice(0, 40)}>{text}</p>
-              ))}
-            </div>
-            <div className="space-y-6 text-stone">
-              <blockquote className="border-l-2 border-gold pl-6 font-serif text-2xl italic text-charcoal">
-                « {p.quote} »
-              </blockquote>
-              {p.paragraphsRight.map((text) => (
-                <p key={text.slice(0, 40)}>{text}</p>
-              ))}
+          <div className="grid gap-12 lg:grid-cols-12">
+            <figure className="corner-brackets relative lg:col-span-4 lg:sticky lg:top-28 lg:self-start">
+              <div className="relative aspect-square w-full overflow-hidden border border-gold/25">
+                <Image
+                  src="/images/3.jpeg"
+                  alt="Statue de la Justice tenant la balance, sur le bureau du cabinet"
+                  fill
+                  className="object-cover sepia-photo"
+                  sizes="(max-width: 1024px) 100vw, 400px"
+                />
+              </div>
+            </figure>
+
+            <div className="grid gap-12 sm:grid-cols-2 lg:col-span-8">
+              <div className="space-y-6 text-stone">
+                {p.paragraphsLeft.map((text) => (
+                  <p key={text.slice(0, 40)}>{text}</p>
+                ))}
+              </div>
+              <div className="space-y-6 text-stone">
+                <blockquote className="border-l-2 border-gold pl-6 font-serif text-2xl italic text-charcoal">
+                  « {p.quote} »
+                </blockquote>
+                {p.paragraphsRight.map((text) => (
+                  <p key={text.slice(0, 40)}>{text}</p>
+                ))}
+              </div>
             </div>
           </div>
 

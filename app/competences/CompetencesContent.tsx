@@ -1,13 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import PageTransition from "@/components/layout/PageTransition";
 import PageHero from "@/components/ui/PageHero";
 import SectionReveal from "@/components/ui/SectionReveal";
+import Divider from "@/components/ui/Divider";
 import { getIcon } from "@/lib/icons";
 import type { SiteContent } from "@/lib/site-content-types";
 
 export default function CompetencesContent({ data }: { data: SiteContent["competences"] }) {
+  const maritime = data.items.find((item) => item.icon === "Anchor");
+
   return (
     <PageTransition>
       <PageHero {...data.hero} />
@@ -55,6 +59,37 @@ export default function CompetencesContent({ data }: { data: SiteContent["compet
           })}
         </motion.div>
       </SectionReveal>
+
+      {maritime && (
+        <SectionReveal className="bg-charcoal px-6 py-20 text-cream lg:px-8">
+          <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2">
+            <figure className="corner-brackets relative">
+              <div className="relative aspect-[3/2] w-full overflow-hidden border border-gold/25">
+                <Image
+                  src="/images/4.jpeg"
+                  alt="Boussole ancienne posée sur une carte marine"
+                  fill
+                  className="object-cover sepia-photo"
+                  sizes="(max-width: 1024px) 100vw, 620px"
+                />
+              </div>
+            </figure>
+
+            <div>
+              <p className="section-label text-gold">{maritime.roman} / Spécialité</p>
+              <h2 className="mt-4 font-serif text-4xl font-medium">{maritime.title}</h2>
+              <Divider className="mt-6 !mx-0" />
+              <p className="mt-6 text-cream/80">{maritime.description}</p>
+              <p className="mt-4 text-cream/70">
+                Port de commerce historique, Annaba place le contentieux maritime au cœur de
+                l&apos;activité économique régionale. Le cabinet intervient en matière
+                d&apos;affrètement, d&apos;avaries, de connaissements et de litiges portuaires,
+                aux côtés des armateurs, transitaires et chargeurs.
+              </p>
+            </div>
+          </div>
+        </SectionReveal>
+      )}
     </PageTransition>
   );
 }
