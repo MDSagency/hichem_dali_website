@@ -47,6 +47,12 @@ export const defaultSiteContent: SiteContent = {
       { src: "/images/boona-1.jpg", alt: "Vue historique de Bône (Annaba)" },
       { src: "/images/boona-2.jpg", alt: "Photographie vintage de la ville de Bône" },
       { src: "/images/boona-3.jpg", alt: "Patrimoine architectural de Annaba" },
+      { src: "/images/1.jpeg", alt: "Cours de la Révolution et son kiosque, Annaba" },
+      { src: "/images/2.jpeg", alt: "Carte postale ancienne du Cours de la Révolution à Bône" },
+      { src: "/images/3.jpeg", alt: "Statue de la Justice sur le bureau du cabinet" },
+      { src: "/images/4.jpeg", alt: "Boussole ancienne posée sur une carte marine" },
+      { src: "/images/5.jpeg", alt: "Marteau de justice et balance sur le bureau d'un avocat" },
+      { src: "/images/6.jpeg", alt: "Lampe de bibliothèque devant des ouvrages juridiques" },
     ],
     hero: {
       label: "CABINET D'AVOCAT — ANNABA, ALGÉRIE",
