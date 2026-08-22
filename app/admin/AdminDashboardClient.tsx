@@ -300,6 +300,7 @@ export default function AdminDashboardClient() {
                     <Field label="Titre" value={m.title} onChange={(v) => { const members = [...content.equipe.members]; members[i] = { ...members[i], title: v }; setContent({ ...content, equipe: { ...content.equipe, members } }); }} />
                     <Field label="Bio" value={m.bio} onChange={(v) => { const members = [...content.equipe.members]; members[i] = { ...members[i], bio: v }; setContent({ ...content, equipe: { ...content.equipe, members } }); }} multiline rows={4} />
                     <StringListEditor label="Spécialités" items={m.specialties} onChange={(v) => { const members = [...content.equipe.members]; members[i] = { ...members[i], specialties: v }; setContent({ ...content, equipe: { ...content.equipe, members } }); }} />
+                    <Field label="Photo (chemin)" value={m.photo ?? ""} onChange={(v) => { const members = [...content.equipe.members]; members[i] = { ...members[i], photo: v }; setContent({ ...content, equipe: { ...content.equipe, members } }); }} />
                     <Field label="Depuis (barreau)" value={m.since ?? ""} onChange={(v) => { const members = [...content.equipe.members]; members[i] = { ...members[i], since: v }; setContent({ ...content, equipe: { ...content.equipe, members } }); }} />
                   </div>
                 ))}

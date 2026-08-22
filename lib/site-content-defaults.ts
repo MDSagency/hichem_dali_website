@@ -233,6 +233,8 @@ export const defaultSiteContent: SiteContent = {
         bio: "Inscrit au Barreau de Annaba depuis le 28 juin 1999, Maître DALI Hichem dirige le cabinet et intervient principalement en droit des affaires, droit administratif, droit foncier et droit maritime.",
         specialties: ["Droit des affaires", "Droit administratif", "Droit foncier", "Droit maritime", "Marchés publics"],
         since: "1999",
+        photo: "/images/Owner.jpeg",
+        photoAlt: "Portrait de Maître DALI Hichem",
       },
       {
         name: "Maître Semra Yasmine Lina",

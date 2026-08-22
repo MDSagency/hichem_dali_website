@@ -25,6 +25,8 @@ export type TeamMemberContent = {
   bio: string;
   specialties: string[];
   since?: string;
+  photo?: string;
+  photoAlt?: string;
 };
 
 export type LinkItem = {
