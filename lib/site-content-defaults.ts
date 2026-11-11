@@ -248,6 +248,8 @@ export const defaultSiteContent: SiteContent = {
           "Droit pénal",
           "Droit administratif",
         ],
+        photo: "/images/semra.webp",
+        photoAlt: "Portrait de Maître Semra Yasmine Lina",
       },
     ],
   },
